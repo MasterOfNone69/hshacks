@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="canvasjs.min.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+var chart;
+	function addData(value) {
+		//chart.options.title.text = "New DataPoint Added at the end";
+		chart.options.data[0].dataPoints.push({ y: parseInt(value)});
+		chart.render();
+		console.log(value+" was added");
+	}
+
+	function fixData(index,value){
+		var length = chart.options.data[0].dataPoints.length;
+		//chart.options.title.text = "Last DataPoint Updated";
+		chart.options.data[0].dataPoints[length-1].y = parseInt(index);
+		chart.render();
+		console.log(value+" was changed at "+index);
+	}
+
+	function resetChart(){
+		/*var data;
+		firebase.database().ref('/events/' + EventName + '/name').once('value').then(function(snapshot) {
+        	exists = (snapshot.val() == "");
+    	});
+*/
+		 chart = new CanvasJS.Chart("chartContainer", { 
+		title: {
+			text: "Pollution Level"
+		},
+		data: [
+		{
+			type: "spline",
+			dataPoints: [
+				{ y: 10 },
+				{ y:  4 },
+				{ y: 18 },
+				{ y:  8 }	
+			]
+		}
+		]
+	});
+	chart.render();	
+	}
+
+window.onload = function () {
+	 resetChart();
+
+}
+
+	
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAr21BJp_Jruj-Z3OShfcl55ClbefqPdd4",
+    authDomain: "hshacks-4d484.firebaseapp.com",
+    databaseURL: "https://hshacks-4d484.firebaseio.com",
+    storageBucket: "hshacks-4d484.appspot.com",
+    messagingSenderId: "334564840194"
+  };
+  firebase.initializeApp(config);
+
+		var database = firebase.database();
+		var reference = database.ref();
+/*
+	reference.on("value",function(snapshot){
+			addData(snapshot.val());
+		});
+*/
+	function writeData(location, name, value) {
+	  database.ref(location).update({
+	    [name]: value,
+	  });
+	}
+
+	function resetDatabase(){
+		database.ref().set(null);
+	}
+
+
+</script>
+<div id="chartContainer" style="width:100%; height:280px"></div> 
+
+</body>
+</html>
