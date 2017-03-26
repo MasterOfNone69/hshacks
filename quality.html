@@ -24,13 +24,14 @@ var chart;
 		chart.render();
 		console.log(value+" was changed at "+index);
 	}
-
-	function resetChart(){
-		/*var data;
-		firebase.database().ref('/events/' + EventName + '/name').once('value').then(function(snapshot) {
-        	exists = (snapshot.val() == "");
+	var nums;
+	firebase.database().ref('/values').on("value",function(snapshot){
+        	nums= snapshot.val() ;
+        	console.log("firebase retrieved");
     	});
-*/
+
+	function resetChart(){		
+
 		 chart = new CanvasJS.Chart("chartContainer", { 
 		title: {
 			text: "Pollution Level"
@@ -38,12 +39,7 @@ var chart;
 		data: [
 		{
 			type: "spline",
-			dataPoints: [
-				{ y: 10 },
-				{ y:  4 },
-				{ y: 18 },
-				{ y:  8 }	
-			]
+			dataPoints: [nums]
 		}
 		]
 	});
