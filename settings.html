@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Material Design Lite</title>
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <style>
+    #view-source {
+        position: fixed;
+        display: block;
+        right: 0;
+        bottom: 0;
+        margin-right: 40px;
+        margin-bottom: 40px;
+        z-index: 900;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Settings</span>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src="images/logo.png" style="width:100%; height: 60%" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span>epicshaunak@gmail.com</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">epicshaunak@gmail.com</li>
+                        <li class="mdl-menu__item">arjundsampath@gmail.com</li>
+                        <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account</li>
+                    </ul>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+                <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+                <a class="mdl-navigation__link" href="stats.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">trending_up</i>Statistics</a>
+                <a class="mdl-navigation__link current" href="#"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Settings</a>
+                <a class="mdl-navigation__link" href="about.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>About</a>
+                <div class="mdl-layout-spacer"></div>
+                <a class="mdl-navigation__link" target="_blank" href="https://home.nest.com/login/oauth2?client_id=dff4d348-c189-485c-8780-4f4789f27b3a&state=STATE"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Connect<img src="images/nest.png" style="width: 20%; margin-left: 3%"></a>
+                <a class="mdl-navigation__link" target="_blank" href="https://graph.api.smartthings.com/oauth/authorize?response_type=code&client_id=myclient&scope=app&redirect_uri=https%3A%2F%2Fgraph.api.smartthings.com%2Foauth%2Fcallback"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Connect<img src="images/SmartThings.png" style="width: 54%; margin-left: 3%"></a>
+                <p class="mdl-navigation__link"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">copyright</i>Smart Ventilation</p>
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div style="margin-left:10%">
+                        <h2>LED Color</h2>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                            <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                            <span class="mdl-radio__label" style="color: #006600">Green</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                            <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                            <span class="mdl-radio__label" style="color: #990000">Red</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                            <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+                            <span class="mdl-radio__label" style="color: #003399">Blue</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                            <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="24">
+                            <span class="mdl-radio__label" style="color: #6600ff">Purple</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+                            <input type="radio" id="option-5" class="mdl-radio__button" name="options" value="5">
+                            <span class="mdl-radio__label" style="color: #006666">Cyan</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+                            <input type="radio" id="option-6" class="mdl-radio__button" name="options" value="6">
+                            <span class="mdl-radio__label">Black</span>
+                        </label>
+                        <br>
+                        <br>
+                        <h2>Slider</h2>
+                        <div style="margin-left: -2%; width:150%">
+                            <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="50" tabindex="0">
+                        </div>
+                        <br>
+                        <br>
+                        <h2>Toggle</h2>
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                            <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+                            <span class="mdl-switch__label">Toggle 1</span>
+                        </label>
+                        <br>
+                        <br>
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+                            <input type="checkbox" id="switch-2" class="mdl-switch__input">
+                            <span class="mdl-switch__label">Toggle 2</span>
+                        </label>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+        </main>
+        </div>
+        <a href="#" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Update Settings</a>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js "></script>
+        <script type="text/javascript">
+        $("#view-source").click(function() {
+            $.ajax({
+                url: "http://10.10.182.156:8080/",
+                method: "GET",
+                success: function(data) {
+                    console.log(data);
+                }
+            })
+        })
+        </script>
+</body>
+
+</html>
